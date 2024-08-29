@@ -46,7 +46,7 @@ INSERT INTO Employees (FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JO
 `SELECT first_name "First Name" last_name "Last Name" from Employees;`
 
 ## 2. Write a query to get unique department ID from employee table.
-`Write a query to get unique department ID from employee table.`
+`SELECT DISTINCT department_id FROM employees;`
 
 Output:
 
@@ -58,3 +58,30 @@ Output:
 |             3 |
 +---------------+
 
+## 3. Write a query to get the details of all employees according to first name in descending order.
+`SELECT * from Employees ORDER BY FIRST_NAME DESC;`
+
+## 4. Write a query to get the employee ID, name (first_name, last_name), salary in ascending order of salary.
+`SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY FROM Employees ORDER BY SALARY;`
+
+## 5. Write a query to get the names (first_name, last_name), salary, PF of all the employees (PF is calculated as 15% of salary).
+`SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) AS Full_Name, SALARY * 0.15 AS PF from Employees;`
+
+## 6. Write a query to get the total salaries payable to employees.
+`SELECT SUM(SALARY) AS Total_Salries from Employees;`
+
+## 7. Write a query to get the maximum and minimum salary from employees table.
+`SELECT MAX(SALARY), MIN(SALARY) from Employees;`
+
+
+## 8. Write a query to get the average salary and number of employees in the employees table.
+`SELECT AVG(SALARY), count(*) from Employees;`
+
+## 9. Write a query to get the number of employees working with the company.
+`SELECT count(*) AS NUM_OF_EMPLOYEES from Employees;`
+
+## 10. Write a query to get the number of designations available in the employees table.
+`SELECT count(DISTINCT JOB_ID) from Employees;`
+
+## 11. Write a query get all first name from employees table in upper case.
+`SELECT UPPER(FIRST_NAME) from Employees;`
