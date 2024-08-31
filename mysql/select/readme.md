@@ -85,3 +85,25 @@ Output:
 
 ## 11. Write a query get all first name from employees table in upper case.
 `SELECT UPPER(FIRST_NAME) from Employees;`
+
+## 12. Write a query to get the first three characters of first name of all employees
+`SELECT SUBSTRING(FIRST_NAME, 1, 3) from Employees;`
+
+## 13. Write a query to get the name (for example Ellen Abel, Sundar Ande etc.) of all the employees from employees table.
+`SELECT  CONCAT(FIRST_NAME,' ', LAST_NAME) 'Employee Name' FROM Employees;`
+
+## 14. Write a query to get first name from employees table after removing white spaces from both side.
+`SELECT  TRIM(FIRST_NAME) FROM Employees;`
+
+## 15. Write a query to get the length of the employee names (first_name, last_name) from employees table.
+`SELECT  FIRST_NAME, LAST_NAME, LENGTH(FIRST_NAME) + LENGTH(LAST_NAME) 'Employee Name' FROM Employees;`
+
+## 16. Write a query to check if the first_name fields of the employees table contains numbers.
+`SELECT * FROM Employees where FIRST_NAME REGEXP '[0-9]';`
+
+## 17. Write a query to select first 10 records from a table.
+`SELECT * FROM Employees LIMIT 10;`
+
+## 18. Write a query to get monthly salary (round 2 decimal places) of all employees.
+`SELECT CONCAT(FIRST_NAME,' ',LAST_NAME) AS "Employee Name", ROUND(SALARY / 12, 2) AS 'Monthly Salary' FROM Employees;`
+
