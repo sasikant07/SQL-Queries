@@ -17,3 +17,18 @@
 
 ## 6. Write a query to display the last name, job, and salary for all employees whose job is that of a Programmer or a Shipping Clerk, and salary is not equal to $4,500, $10,000, or $15,000.
 `SELECT LAST_NAME, SALARY, JOB_ID from Employees where JOB_ID IN("IT_PROG","SHIP_CLERK") AND SALARY NOT IN(45000, 10000, 15000);`
+
+## 7. Write a query to display the last name of employees whose name have exactly 6 characters.
+`SELECT LAST_NAME from Employees where LAST_NAME LIKE "______";`
+
+## 8. Write a query to display the last name of employees having 'e' as the third character.
+`SELECT LAST_NAME from Employees where LAST_NAME LIKE "__e%";`
+
+## 9. Write a query to display the jobs/designations available in the employees table.
+`SELECT DISTINCT JOB_ID from Employees;`
+
+## 10.Write a query to display the name (first_name, last_name), salary and PF (15% of salary) of all employees.
+`SELECT FIRST_NAME, LAST_NAME, SALARY * 0.15 AS PF from Employees;`
+
+## 11. Write a query to select all records from employees where last name in 'JONES', 'BLAKE', 'SCOTT', 'KING' and 'FORD'.
+`SELECT * from Employees where LAST_NAME IN (JONES', 'BLAKE', 'SCOTT', 'KING', 'FORD'.);`
