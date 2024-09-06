@@ -24,3 +24,18 @@
 
 ## 9. Write a query to find the manager ID and the salary of the lowest-paid employee for that manager.
 `SELECT MANAGER_ID, MIN(SALARY) from Employees where MANAGER_ID IS NOT NULL GROUP BY MANAGER_ID ORDER BY MIN(SALARY) DESC;`
+
+## 10. Write a query to get the department ID and the total salary payable in each department
+`SELECT DEPARTMENT_ID, SUM(SALARY) AS TOTAL_SALARY from Employees group by DEPARTMENT_ID;`
+
+## 11. Write a query to get the average salary for each job ID excluding programmer.
+`SELECT JOB_ID, AVG(SALARY) from Employees where JOB_ID <> "DEV" group by JOB_ID;`
+
+## 12. Write a query to get the total salary, maximum, minimum, average salary of employees (job ID wise), for department ID 90 only.
+`SELECT JOB_ID, SUM(SALARY) AS TOTAL_SALARY, MAX(SALARY) AS MAX, MIN(SALARY) AS MIN, AVG(SALARY) AS AVG_SALARY from Employees where DEPARTMENT_ID = "3" group by JOB_ID;`
+
+## 13. Write a query to get the job ID and maximum salary of the employees where maximum salary is greater than or equal to $4000.
+`SELECT JOB_ID, MAX(SALARY) from Employees group by JOB_ID having MAX(SALARY) >= 4000;`
+
+## 14. Write a query to get the average salary for all departments employing more than 10 employees.
+`SELECT DEPARTMENT_ID, max(SALARY), count(*) from Employees group by DEPARTMENT_ID having count(*) > 10;`
