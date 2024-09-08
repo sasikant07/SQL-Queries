@@ -92,3 +92,15 @@ CREATE TABLE `regions` (
 );
 
 INSERT INTO `regions` VALUES (1,'Europe\r'),(2,'Americas\r'),(3,'Asia\r'),(4,'Middle East and Africa\r');
+
+
+
+<!-- select * from employees;
+select * from departments;
+select * from countries;
+select * from jobs;
+select * from job_history;
+select * from locations;
+select * from regions; -->
+
+<!-- ROW_NUMBER() OVER (ORDER BY FIRST_NAME, LAST_NAME) "SL_NO." -->
