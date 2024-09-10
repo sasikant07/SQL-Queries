@@ -53,3 +53,27 @@
 ## 14. Write a MySQL query to display the employee ID, first name, last name, salary of all employees whose salary is above average for their departments.
 
 `select EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY from employees A where SALARY > (select avg(SALARY) from employees where DEPARTMENT_ID = A.DEPARTMENT_ID);`
+
+## 15. Write a  MySQL query to fetch even numbered records from employees table.
+`SET @i = 0; SELECT i, employee_id FROM (SELECT @i := @i + 1 AS i, employee_id FROM employees) a WHERE MOD(a.i, 2) = 0;`
+
+## 16. Write a MySQL query to find the 5th maximum salary in the employees table.
+`select DISTINCT SALARY from employees e1 where 5 = (select count(DISTINCT SALARY) from employees e2 where e2.SALARY >= e1.SALARY);`
+
+## 17. Write a  MySQL query to find the 4th minimum salary in the employees table.
+`select distinct SALARY from employees e1 where 4 = (select Count(distinct SALARY) from employees e2 where e2.SALARY <= e1.SALARY);`
+
+## 18. Write a  MySQL query to select last 10 records from a table
+`select * from (select * from employees ORDER BY EMPLOYEE_ID desc limit 10) sub ORDER BY EMPLOYEE_ID asc;`
+
+## 19. Write a MySQL query to list the department ID and name of all the departments where no employee is working.
+`select * from departments where DEPARTMENT_ID NOT IN (select DEPARTMENT_ID from employees);`
+
+## 20. Write a  MySQL query to get 3 maximum salaries.
+`select distinct SALARY from employees a where 3 >= (select count(distinct SALARY) from employees b where b.SALARY >= a.SALARY) ORDER BY a.SALARY desc;`
+
+## 21. Write a  MySQL query to get 3 minimum salaries.
+`select DISTINCT SALARY from employees A where 3 >= (select COUNT(DISTINCT SALARY) from employees B where b.SALARY <= A.SALARY) ORDER BY A.SALARY DESC;`
+
+## 22. Write a  MySQL query to get nth maximum salaries of employees.
+`select * from employees a where (1) = (select COUNT(DISTINCT SALARY) from employees b where b.SALARY > a.SALARY);`
