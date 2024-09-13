@@ -13,3 +13,11 @@
 ## 5. Write a  MySQL query to find the name (first_name, last_name) and hire date of the employees who was hired after 'Jones'.
 `select e.FIRST_NAME, e.LAST_NAME, e.HIRE_DATE from employees e JOIN employees d ON (d.LAST_NAME = "Jones") WHERE d.HIRE_DATE < e.HIRE_DATE;`
 
+## 6. Write a MySQL query to get the department name and number of employees in the department.
+`select DEPARTMENT_NAME AS "Department Name", count(*) AS "No. of employees" from departments inner join employees on departments.DEPARTMENT_ID = employees.DEPARTMENT_ID group by departments.DEPARTMENT_ID, DEPARTMENT_NAME order by DEPARTMENT_NAME;`
+
+## 7. Write a  MySQL query to find the employee ID, job title, number of days between ending date and starting date for all jobs in department 90 from job history.
+`select EMPLOYEE_ID, JOB_TITLE, END_DATE - START_DATE AS "Days" from job_history natural join jobs where DEPARTMENT_ID = 90;`
+
+## 8. Write a  MySQL query to display the department ID and name and first name of manager.
+`select d.DEPARTMENT_ID, d.DEPARTMENT_NAME, d.MANAGER_ID, e.FIRST_NAME from departments d inner join employees e on d.MANAGER_ID = e.EMPLOYEE_ID;`
