@@ -21,3 +21,19 @@
 
 ## 8. Write a  MySQL query to display the department ID and name and first name of manager.
 `select d.DEPARTMENT_ID, d.DEPARTMENT_NAME, d.MANAGER_ID, e.FIRST_NAME from departments d inner join employees e on d.MANAGER_ID = e.EMPLOYEE_ID;`
+
+## 9. Write a  MySQL query to display the department name, manager name, and city.
+`select d.DEPARTMENT_NAME, e.FIRST_NAME, l.CITY from departments d JOIN employees e on (d.MANAGER_ID = e.EMPLOYEE_ID) JOIN locations l using(LOCATION_ID);`
+
+## 10. Write a MySQL query to display the job title and average salary of employees.
+`select JOB_TITLE, avg(SALARY) from employees NATURAL JOIN jobs group by JOB_TITLE;`
+
+## 11. Write a MySQL query to display job title, employee name, and the difference between salary of the employee and minimum salary for the job.
+`select JOB_TITLE, FIRST_NAME, SALARY - MIN_SALARY from employees NATURAL JOIN jobs;`
+
+## 12. Write a MySQL query to display the job history that were done by any employee who is currently drawing more than 10000 of salary.
+`select jh.* from job_history jh JOIN employees e ON (jh.EMPLOYEE_ID = e.EMPLOYEE_ID) where SALARY > 10000;`
+
+## 13. Write a MySQL query to display the first name, last name, hire date, salary of the manager for all managers whose experience is more than 15 years
+`select FIRST_NAME, LAST_NAME, HIRE_DATE, SALARY, (DATEDIFF(now(), HIRE_DATE))/365 AS "Experience" from departments d JOIN employees e ON(d.MANAGER_ID = e.EMPLOYEE_ID) where (DATEDIFF(now(), HIRE_DATE))/365 > 15;`
+
