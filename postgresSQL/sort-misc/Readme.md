@@ -16,3 +16,17 @@
 ## 6. Write a query to display the last name, job, and salary for all those employees who hasn't worked as a Programmer or a Shipping Clerk, and not drawing the salary $4,500, $10,000, or $15,000.
 `SELECT last_name, job_id, salary FROM employees WHERE job_id NOT IN ('IT_PROG', 'SH_CLERK') AND salary NOT IN (4500,10000, 15000);`
 
+## 7. Write a query to display the last name of employees whose name contain exactly six characters.
+`select last_name from employees where last_name LIKE '______';`
+
+## 8. Write a query to display the last name of employees having 'e' as the third character.
+`select last_name from employees where last_name LIKE '__e%';`
+
+## 9. Write a query to display the jobs/designations available in the employees table.
+`select DISTINCT job_id from employees;`
+
+## 10. Write a query to display the name, including first_name, last_name, salary and 15% of salary as PF of all employees.
+`select first_name, last_name, salary, salary * 0.15 AS pf from employees;`
+
+## 11. Write a query to select all information of employees whose last name is either 'JONES' or 'BLAKE' or 'SCOTT' or 'KING' or 'FORD'.
+`select last_name from employees where last_name IN('Jones', 'Blake', 'Scott', 'King', 'Ford');`
