@@ -39,3 +39,24 @@
 
 ## 14. Write a SQL subquery to find the employee ID, first name, last name and salary of all employees whose salary is above the average salary for their departments.
 `select employee_id, first_name from employees A where salary > (select AVG(salary) from employees where department_id = A.department_id);`
+
+## 15. Write a subquery to find the 5th maximum salary of all salaries.
+`select distinct salary from employees e1 where 5 = (select count(distinct salary) from employees e2 where e1.salary <= e2.salary);`
+
+## 16. Write a subquery to find the 4th minimum salary of all the salaries.
+`select distinct salary from employees e1 where 4 = (select count(distinct salary) from employees e2 where e1.salary >= e2.salary);`
+
+## 17. Write a subquery to select last 10 records from a table.
+`select * from (select * from employees order by employee_id desc limit 10) sub order by employee_id asc;`
+
+## 18. Write a subquery to display the information for all the departments where no employee is working.
+`select * from departments where department_id not in (select department_id from employees);`
+
+## 19. Write a query to get three maximum salaries.
+`select distinct salary from employees a where 3 >= (select count(distinct salary) from employees b where a.salary <= b.salary) order by salary desc;`
+
+## 20. Write a query to get three minimum salaries.
+`select distinct salary from employees a where 3 >= (select count(distinct salary) from employees b where a.salary >= b.salary) order by salary desc;`
+
+## 21. Write a query to get nth max salaries of employees.
+`select * from employees a where (1) = (select count(distinct(b.salary)) from employees b where b.salary > a.salary);`
